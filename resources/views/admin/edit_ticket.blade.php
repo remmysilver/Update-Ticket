@@ -77,12 +77,16 @@
                 <label>Category:</label>
                 <select class="input_color" name="Category" Required>
                     <option value="{{$data->category}}" selected="">{{$data->category}}</option>
+                    @foreach($category as $category)
+                    <option value="{{$category->category_name}}">{{$category->category_name}}</option>
+                    @endforeach
                     
                 </select>
 
                 <div class="div_design">
                 <label>Current Event Image Here:</label>
-                <img src="{{/tickets('images/'.$data->image)}}" class="img_size">
+                <img style="margin: auto;" height="100px" width="100px" src="{{ asset('../uploads/tickets/' . $data->image) }}" class="img_size">
+                </div>
                 </div>
 
                 <div class="div_design">
