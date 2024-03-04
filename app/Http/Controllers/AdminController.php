@@ -80,7 +80,9 @@ class AdminController extends Controller
     public function edit_ticket($id)
     {
         $data=Tickets::find($id);
-        return view('admin.edit_ticket',compact('data'));
+        $category=category::all();
+        
+        return view('admin.edit_ticket',compact('data','category'));
     }
     public function update_ticket(Request $request)
     {
@@ -109,7 +111,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message','Ticket Updated Successfully');
     }
-    
+
 
 
 }
