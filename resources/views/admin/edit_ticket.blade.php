@@ -39,10 +39,18 @@
         <div class="main-panel">
           <div class="content-wrapper">
 
+          @if(session()->has('message'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden ="true">x</button>
+                {{session()->get('message')}}
+            </div>
+            @endif
+
+
           <div class="div_center">
-                <h1 class="h2_font">Add Tickets</h1>
+                <h1 class="h2_font">Update Tickets</h1>
                 
-                <form action="{{url('/add_ticket')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/edit_ticket_confirm',$data->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="div_design">
                 <label>Ticket Name:</label>
@@ -64,18 +72,18 @@
 
                 <div class="div_design">
                 <label>Discount Price:</label>
-                <input class="input_color" type="number" name="discount_price" placeholder="Write Ticket Discount Price"
+                <input class="input_color" type="number" name="discount_price" placeholder="Write Ticket Discount Price" Required="" 
                 value="{{$data->discount_price}}">
                 </div>
 
                 <div class="div_design">
                 <label>Attendees:</label>
-                <input class="input_color" type="number" min=0 name="attendees" placeholder="No of Attendees" value="{{$data->attendees}}">
+                <input class="input_color" type="number" min=0 name="attendees" placeholder="No of Attendees" Required=""  value="{{$data->attendees}}">
                 </div>
 
                 <div class="div_design">
                 <label>Category:</label>
-                <select class="input_color" name="Category" Required>
+                <select class="input_color" name="Category" Required="">
                     <option value="{{$data->category}}" selected="">{{$data->category}}</option>
                     @foreach($category as $category)
                     <option value="{{$category->category_name}}">{{$category->category_name}}</option>
@@ -91,11 +99,11 @@
 
                 <div class="div_design">
                 <label>Change Event Image Here:</label>
-                <input type="file" name="Image" Required>
+                <input type="file" name="Image" >
                 </div>
 
                 <div class="div_design">
-                <input type="Submit" value="Add Ticket" class="btn btn-primary">
+                <input type="Submit" value="Update Ticket" class="btn btn-primary">
                 </div>
 
               </form>
