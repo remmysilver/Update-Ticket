@@ -38,3 +38,4 @@ route::post('/add_ticket', [AdminController::class, 'add_ticket']);
 route::get('/vie_ticket', [AdminController::class, 'vie_ticket']);
 route::get('/delete_ticket/{id}', [AdminController::class, 'delete_ticket']);
 route::get('/edit_ticket/{id}', [AdminController::class, 'edit_ticket']);
+route::post('/edit_ticket_confirm/{id}', [AdminController::class, 'edit_ticket_confirm']);
