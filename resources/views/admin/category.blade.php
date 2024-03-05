@@ -39,9 +39,8 @@
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden ="true">x</button>
                 {{session()->get('message')}}
-
-
             @endif
+            
             <div class="div_center">
                 <h1 class="h2_font">Add Category</h1>
                 <form action="{{url('/add_category')}}" method="POST">
