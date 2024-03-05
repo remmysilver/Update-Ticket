@@ -46,8 +46,8 @@
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden ="true">x</button>
                 {{session()->get('message')}}
-            @endif
-            
+          @endif
+
             <h2 class="font_size"> All Tickets</h2>
 
             <table class="center">
